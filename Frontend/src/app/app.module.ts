@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { APP_ROUTING } from './app.routes';
 
@@ -15,7 +16,8 @@ import { UsersComponent } from './components/shared/users/users.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
