@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   constructor(private _userService:UserService, private _activatedRoute: ActivatedRoute) {
     this._activatedRoute.queryParams.subscribe(
       params =>{
-        this.nombre = params['nombre'];
+        this.nombre = params['name'];
       }
     )
    }

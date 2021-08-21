@@ -4,13 +4,17 @@
     <form class="col-md-5 ml-0 pl-0" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" name="name" class="form-control" #nombre="ngModel" [(ngModel)]="user.nombre">
+            <input type="text" name="name" class="form-control"  #name #nombre="ngModel" [(ngModel)]="user.nombre">
         </div>
 
         <br>
 
-        <div class="form-group">
-            <input type="submit" value="Buscar" class="btn btn-success">
-          </div>
+        <div class="container">
+            <input type="submit" value="Consultar" class="btn btn-success" style="margin-left: 10px;">
+        </div>
+
+        <div class="container" style="inline-size: 0%; margin-top: -36px;">
+            <input type="button" (click)="name.value=''" value="Limpiar" class="btn btn-warning" style="margin-left: 10px;">
+        </div>
     </form>
 </div>
