@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -10,11 +11,18 @@ import { Subject } from 'rxjs';
 })
 export class UsersComponent implements OnInit {
 
-  allUsers: any = [];
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
+  public allUsers: any = [];
+  public dtOptions: DataTables.Settings = {};
+  public dtTrigger: Subject<any> = new Subject<any>();
+  public nombre: string = "";
 
-  constructor(private _userService:UserService) { }
+  constructor(private _userService:UserService, private _activatedRoute: ActivatedRoute) {
+    this._activatedRoute.queryParams.subscribe(
+      params =>{
+        this.nombre = params['nombre'];
+      }
+    )
+   }
 
   ngOnInit(): void {
     this.users();
@@ -25,7 +33,7 @@ export class UsersComponent implements OnInit {
   }
 
   users():void{
-    this._userService.list().subscribe(
+    this._userService.list(this.nombre).subscribe(
       response => {
         console.log(response);
         this.allUsers = response;

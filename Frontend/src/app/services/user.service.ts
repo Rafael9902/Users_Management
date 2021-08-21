@@ -12,9 +12,11 @@ export class UserService{
         this.url = global.url;
     }
 
-    list():Observable<any>{
+    list(name?:string):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + 'list', {headers:headers});
+        let uri = name ? 'list/' + name : 'list';
+        
+        return this._http.get(this.url + uri, {headers:headers});
     }
 
     save(user:User): Observable<any>{

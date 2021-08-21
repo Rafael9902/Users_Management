@@ -7,6 +7,8 @@ import { APP_ROUTING } from './app.routes';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { CommonModule } from "@angular/common";
+import { FormsModule } from '@angular/forms';
+
 
 import { DataTablesModule } from "angular-datatables";
 import { UsersComponent } from './components/shared/users/users.component';
@@ -25,7 +27,8 @@ import { SearchComponent } from './components/shared/search/search.component';
     APP_ROUTING,
     HttpClientModule,
     DataTablesModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
