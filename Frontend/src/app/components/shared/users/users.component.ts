@@ -9,15 +9,23 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit {
 
+  allUsers: any = [];
+
   constructor(private _userService:UserService) { }
 
   ngOnInit(): void {
+    this.users();
+  }
+
+  users(){
     this._userService.list().subscribe(
       response => {
-        document.write(JSON.stringify(response));
+        console.log(response);
+        this.allUsers = response;
       },
       error => {
-        console.log(<any>error);
+        console.error("Error");
+
       }
     )
   }

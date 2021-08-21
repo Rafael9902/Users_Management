@@ -1,1 +1,25 @@
-<p>users works!</p>
+<div class="container">
+    <div class="card m-5 p-3">
+        <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Rol</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of allUsers">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.id_rol }}</td>
+                    <td>{{ user.nombre }}</td>
+                    <td>{{ user.activo }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
