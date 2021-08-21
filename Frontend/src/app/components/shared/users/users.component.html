@@ -1,25 +1,30 @@
-<div class="container">
-    <div class="card m-5 p-3">
-        <div class="card-body">
-            <table class="table table-bordered table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Rol</th>
-                    <th>Nombre</th>
-                    <th>Activo</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let user of allUsers">
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.id_rol }}</td>
-                    <td>{{ user.nombre }}</td>
-                    <td>{{ user.activo }}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
+<div class="card-body">
+    <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Rol</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <!-- <th></th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of allUsers" (click)="edit(user.id)">
+                <td>{{ user.id }}</td>
+                <td>{{ user.id_rol }}</td>
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.activo }}</td>
+                <!-- <td style="width: 10%;">
+                    <div class="row">
+                        <input type="image" id="edit" alt="Editar" src="../../../../assets/icons/edit.png"
+                            style="width: 60px;" (click)="edit(user.id)">
+                        <input type="image" id="delete" alt="Eliminar" src="../../../../assets/icons/delete.png"
+                            style="width: 50px;">
+                    </div>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
 </div>

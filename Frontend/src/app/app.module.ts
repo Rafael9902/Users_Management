@@ -10,13 +10,15 @@ import { CommonModule } from "@angular/common";
 
 import { DataTablesModule } from "angular-datatables";
 import { UsersComponent } from './components/shared/users/users.component';
+import { SearchComponent } from './components/shared/search/search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    UsersComponent
+    UsersComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
