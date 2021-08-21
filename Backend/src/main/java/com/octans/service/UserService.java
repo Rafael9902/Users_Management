@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/user")
 public class UserService {
 
@@ -20,6 +21,11 @@ public class UserService {
     @GetMapping("/list")
     public List<User> list(){
         return userDAO.findAll();
+    }
+
+    @GetMapping("/list/{name}")
+    public List<User> listUserByName(@PathVariable("name") String name){
+        return userDAO.findByNombreContaining(name);
     }
 
     @PostMapping("/save")
