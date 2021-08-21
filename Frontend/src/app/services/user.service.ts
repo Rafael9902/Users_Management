@@ -12,8 +12,9 @@ export class UserService{
         this.url = global.url;
     }
 
-    test(){
-        return "Hello World Service";
+    list():Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url + 'list', {headers:headers});
     }
 
     save(user:User): Observable<any>{

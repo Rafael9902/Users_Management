@@ -12,7 +12,14 @@ export class UsersComponent implements OnInit {
   constructor(private _userService:UserService) { }
 
   ngOnInit(): void {
-    console.log(this._userService.test());
+    this._userService.list().subscribe(
+      response => {
+        document.write(JSON.stringify(response));
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
   }
 
 }

@@ -8,16 +8,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { UsersComponent } from './components/shared/users/users.component';
 
+import { DataTablesModule } from "angular-datatables";
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    UsersComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
