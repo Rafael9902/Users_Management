@@ -1,4 +1,8 @@
 <div class="card-body">
+    <input type="button" value="Crear" (click)="createUser()" class="btn btn-primary" style="margin-left: 10px;">
+</div>
+
+<div class="card-body">
     <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions"
         [dtTrigger]="dtTrigger">
         <thead class="thead-dark">

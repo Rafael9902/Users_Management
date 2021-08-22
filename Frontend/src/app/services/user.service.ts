@@ -14,20 +14,20 @@ export class UserService{
 
     list(name?:string):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        let uri = name ? 'list/' + name : 'list';
+        let uri = name ? 'user/list/' + name : 'user/list';
         
         return this._http.get(this.url + uri, {headers:headers});
     }
 
     getUser(id: number):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
-        return this._http.get(this.url + id);
+        return this._http.get(this.url + 'user/' + id, {headers: headers});
     }
 
     save(user:User): Observable<any>{
         let json = JSON.stringify(user);
-        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.post(this.url + 'save', json, {headers:headers});
+        return this._http.post(this.url + 'user/save', json, {headers:headers});
     }
 }

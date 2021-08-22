@@ -14,6 +14,7 @@ import { DataTablesModule } from "angular-datatables";
 import { UsersComponent } from './components/shared/users/users.component';
 import { SearchComponent } from './components/shared/search/search.component';
 import { UserComponent } from './components/shared/user/user.component';
+import { CreateComponent } from './components/shared/create/create.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UserComponent } from './components/shared/user/user.component';
     NavbarComponent,
     UsersComponent,
     SearchComponent,
-    UserComponent
+    UserComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

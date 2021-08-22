@@ -35,7 +35,6 @@ export class UsersComponent implements OnInit {
   users():void{
     this._userService.list(this.nombre).subscribe(
       response => {
-        console.log(response);
         this.allUsers = response;
         this.dtTrigger.next();
       },
@@ -47,6 +46,10 @@ export class UsersComponent implements OnInit {
 
   edit(user_id:number){
     this._router.navigate(['/edit/' + user_id]);
+  }
+
+  createUser(){
+    this._router.navigate(['/save/']);
   }
 
 }
