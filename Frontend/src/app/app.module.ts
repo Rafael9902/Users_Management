@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { DataTablesModule } from "angular-datatables";
 import { UsersComponent } from './components/shared/users/users.component';
 import { SearchComponent } from './components/shared/search/search.component';
+import { UserComponent } from './components/shared/user/user.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SearchComponent } from './components/shared/search/search.component';
     AppComponent,
     NavbarComponent,
     UsersComponent,
-    SearchComponent
+    SearchComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

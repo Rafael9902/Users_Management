@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
-import { Router, ActivatedRoute, Params }  from '@angular/router';
+import { Router, ActivatedRoute }  from '@angular/router';
 
 @Component({
   selector: 'app-search',

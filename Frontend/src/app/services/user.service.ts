@@ -19,6 +19,11 @@ export class UserService{
         return this._http.get(this.url + uri, {headers:headers});
     }
 
+    getUser(id: number):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url + id);
+    }
+
     save(user:User): Observable<any>{
         let json = JSON.stringify(user);
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');

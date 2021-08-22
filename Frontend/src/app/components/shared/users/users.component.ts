@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Subject } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   public dtTrigger: Subject<any> = new Subject<any>();
   public nombre: string = "";
 
-  constructor(private _userService:UserService, private _activatedRoute: ActivatedRoute) {
+  constructor(private _userService:UserService, private _activatedRoute: ActivatedRoute, private _route:ActivatedRoute, private _router:Router) {
     this._activatedRoute.queryParams.subscribe(
       params =>{
         this.nombre = params['name'];
@@ -46,7 +46,7 @@ export class UsersComponent implements OnInit {
   }
 
   edit(user_id:number){
-    alert(user_id);
+    this._router.navigate(['/edit/' + user_id]);
   }
 
 }
