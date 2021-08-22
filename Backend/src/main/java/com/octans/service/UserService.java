@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,6 +27,11 @@ public class UserService {
     @GetMapping("/list/{name}")
     public List<User> listUserByName(@PathVariable("name") String name){
         return userDAO.findByNombreContaining(name);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable("id") Integer id){
+        return userDAO.findById(id);
     }
 
     @PostMapping("/save")
