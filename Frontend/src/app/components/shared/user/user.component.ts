@@ -36,6 +36,8 @@ export class UserComponent implements OnInit {
     this._userService.getUser(id).subscribe(
       response =>{
         this.user.nombre = response.nombre;
+        this.user.id_rol = response.id_rol;
+        this.user.activo = response.activo;
       },
       error =>{
         console.error(error);
@@ -55,7 +57,14 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(form: any){
-    alert('hola');
+    this._userService.update(this.user).subscribe(
+      response =>{
+        console.log(response);
+      },
+      error =>{
+        console.error(error);
+      }
+    )
   }
 
 }

@@ -30,4 +30,12 @@ export class UserService{
 
         return this._http.post(this.url + 'user/save', json, {headers:headers});
     }
+
+    update(user:any): Observable<any>{
+        user['id'] = user.id_usuario;
+        let json = JSON.stringify(user);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.put(this.url + 'user/update', json, {headers:headers});
+    }
 }
