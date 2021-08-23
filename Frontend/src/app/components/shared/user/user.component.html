@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <label for="role">Rol</label>
-                <select class="form-control" id="role" name="role" [ngModel]="user.id_rol">
+                <select class="form-control" id="role" name="role" [(ngModel)]="user.id_rol">
                     <option *ngFor="let role of roles" [value]="role.id">{{role.nombre}}</option>
                 </select>
             </div>

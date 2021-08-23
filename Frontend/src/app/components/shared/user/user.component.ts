@@ -57,7 +57,6 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(form: any){
-    console.log(form);
     this._userService.update(this.user).subscribe(
       response =>{
         this._router.navigate(['/users']);
