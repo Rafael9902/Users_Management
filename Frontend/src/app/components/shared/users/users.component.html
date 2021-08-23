@@ -1,5 +1,7 @@
 <div class="card-body">
     <input type="button" value="Crear" (click)="createUser()" class="btn btn-primary" style="margin-left: 10px;">
+    <input type="button" value="Regresar" (click)="SearchUser()" class="btn btn-warning" style="margin-left: 10px;">
+
 </div>
 
 <div class="card-body">
@@ -17,7 +19,7 @@
         <tbody>
             <tr *ngFor="let user of allUsers" (click)="edit(user.id)">
                 <td>{{ user.id }}</td>
-                <td>{{ user.id_rol }}</td>
+                <td>{{ getRole(user.id_rol) }}</td>
                 <td>{{ user.nombre }}</td>
                 <td>{{ user.activo }}</td>
                 <!-- <td style="width: 10%;">

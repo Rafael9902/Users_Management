@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  providers: [UserService]
+  providers: [UserService, RoleService]
 })
 export class UsersComponent implements OnInit {
 
@@ -15,8 +16,9 @@ export class UsersComponent implements OnInit {
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject<any>();
   public nombre: string = "";
+  public roles: any;
 
-  constructor(private _userService:UserService, private _activatedRoute: ActivatedRoute, private _route:ActivatedRoute, private _router:Router) {
+  constructor(private _userService:UserService, private _roleService:RoleService, private _activatedRoute: ActivatedRoute, private _route:ActivatedRoute, private _router:Router) {
     this._activatedRoute.queryParams.subscribe(
       params =>{
         this.nombre = params['name'];
@@ -26,6 +28,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.users();
+    this.getRoles();
   }
 
   ngOnDestroy(): void {
@@ -50,6 +53,32 @@ export class UsersComponent implements OnInit {
 
   createUser(){
     this._router.navigate(['/save/']);
+  }
+
+  SearchUser(){
+    this._router.navigate(['/']);
+  }
+
+  getRole(id_rol:number){
+    let name = "";
+
+    for(let role of this.roles){
+      if(id_rol == role.id){
+        name = role.nombre;
+      }
+    }
+    return name;
+  }
+
+  getRoles(){
+    this._roleService.getRoles().subscribe(
+      response =>{
+        this.roles = response;
+      },
+      error =>{
+        console.error(error);
+      }
+    );
   }
 
 }

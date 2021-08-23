@@ -57,9 +57,25 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(form: any){
+    console.log(form);
     this._userService.update(this.user).subscribe(
       response =>{
-        console.log(response);
+        this._router.navigate(['/users']);
+      },
+      error =>{
+        console.error(error);
+      }
+    )
+  }
+
+  createUser(){
+    this._router.navigate(['/save/']);
+  }
+
+  deleteUser(){
+    this._userService.delete(this.user.id_usuario).subscribe(
+      response =>{
+        this._router.navigate(['/users/']);
       },
       error =>{
         console.error(error);

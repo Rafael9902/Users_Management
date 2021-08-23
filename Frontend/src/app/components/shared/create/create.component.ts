@@ -39,7 +39,7 @@ export class CreateComponent implements OnInit {
   onSubmit(form: any){
     this._userService.save(this.user).subscribe(
       response =>{
-        console.log(response);
+        this._router.navigate(['/users']);
       },
       error =>{
         console.error(error);
@@ -47,6 +47,10 @@ export class CreateComponent implements OnInit {
       }
     )
     console.log(this.user);
+  }
+
+  return(){
+    this._router.navigate(['/users']);
   }
 
 }

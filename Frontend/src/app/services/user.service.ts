@@ -33,9 +33,17 @@ export class UserService{
 
     update(user:any): Observable<any>{
         user['id'] = user.id_usuario;
+        console.log(user);
+
         let json = JSON.stringify(user);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
         return this._http.put(this.url + 'user/update', json, {headers:headers});
+    }
+
+    delete(id: number): Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._http.delete(this.url + 'user/delete/' + id, {headers:headers});
     }
 }
